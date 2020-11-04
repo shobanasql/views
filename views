@@ -1,0 +1,121 @@
+views
+
+1)mysql> create table emp(eid int(10),ename char(20),sal int(10),job char(10));
+Query OK, 0 rows affected (0.55 sec)
+
+select * from emp;
++------+------------+-------+------+
+| eid  | ename      | sal   | job  |
++------+------------+-------+------+
+|  101 | vani       | 90000 | s.e  |
+|  102 | venisha    | 75000 | p.p  |
+|  103 | ruku       | 60000 | dba  |
++------+------------+-------+------+
+3 rows in set (0.06 sec)
+
+1.create view
+
+ create view e1 as select * from emp;
+    -> |
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> select * from e1;
+    -> |
++------+------------+-------+------+
+| eid  | ename      | sal   | job  |
++------+------------+-------+------+
+|  101 | vani       | 30000 | s.e  |
+|  102 | venisha    | 35000 | p.p  |
+|  103 | ruku       | 20000 | dba  |
++------+------------+-------+------+
+3 rows in set (0.06 sec)
+
+
+2. insert view
+
+
+mysql> insert into e1 values(' 104','joshvika','40000','principal');
+    -> |
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from e1;
+    -> |
++------+------------+-------+-----------+
+| eid  | ename      | sal   | job       |
++------+------------+-------+-----------+
+|  101 | vani       | 30000 | s.e       |
+|  102 | venisha    | 35000 | p.p       |
+|  103 | ruku       | 20000 | dba       |
+|  104 | joshvika   | 40000 | principal |
++------+------------+-------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select ename ,sal from e1;
+    -> |
++------------+-------+
+| ename      | sal   |
++------------+-------+
+| prathyusha | 30000 |
+| supraja    | 35000 |
+| dam        | 20000 |
+| joshvika   | 40000 |
++------------+-------+
+4 rows in set (0.00 sec)
+  
+3.operations of view
+  
+  
+mysql> select * from e1 where sal>30000;
+    -> |
++------+----------+-------+-----------+
+| eid  | ename    | sal   | job       |
++------+----------+-------+-----------+
+|  102 | supraja  | 35000 | p.p       |
+|  104 | joshvika | 40000 | principal |
++------+----------+-------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> mysql> delete from e1 where sal=20000;
+    -> |
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from e1;
+    -> |
++------+------------+-------+-----------+
+| eid  | ename      | sal   | job       |
++------+------------+-------+-----------+
+|  101 | prathyusha | 30000 | s.e       |
+|  102 | supraja    | 35000 | p.p       |
+|  104 | joshvika   | 40000 | principal |
++------+------------+-------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp;
+    -> |
++------+------------+-------+-----------+
+| eid  | ename      | sal   | job       |
++------+------------+-------+-----------+
+|  101 | prathyusha | 30000 | s.e       |
+|  102 | supraja    | 35000 | p.p       |
+|  104 | joshvika   | 40000 | principal |
++------+------------+-------+-----------+
+3 rows in set (0.00 sec)
+
+
+4.Drop view
+
+
+mysql> drop view e1;
+    -> |
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp;
+    -> |
++------+------------+-------+-----------+
+| eid  | ename      | sal   | job       |
++------+------------+-------+-----------+
+|  101 | prathyusha | 30000 | s.e       |
+|  102 | supraja    | 35000 | p.p       |
+|  104 | joshvika   | 40000 | principal |
++------+------------+-------+-----------+
+3 rows in set (0.00 sec)
