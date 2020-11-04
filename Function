@@ -1,0 +1,165 @@
+functions Query;
+
+1)mysql> create table Customer (emp_id INT,Emp_name varchar(200),salary INT);
+Query OK, 0 rows affected (0.43 sec)
+2)mysql> insert into Customer(Emp_id,Emp_name,salary)values(1,'sam',100);
+Query OK, 1 row affected (0.09 sec)
+
+3)mysql> insert into Customer(Emp_id,Emp_name,salary)values(2,'sanju',200);
+Query OK, 1 row affected (0.04 sec)
+
+4)mysql> insert into Customer(Emp_id,Emp_name,salary)values(3,'samu',300);
+Query OK, 1 row affected (0.09 sec)
+
+5)mysql> insert into Customer(Emp_id,Emp_name,salary)values(4,'Ammu',400);
+Query OK, 1 row affected (0.09 sec)
+
+6)mysql> select * from Customer;
++--------+----------+--------+
+| emp_id | Emp_name | salary |
++--------+----------+--------+
+|    1   | sam      |  100   |
+|    2   | sanju    |  200   |
+|    3   | samu     |  300   |
+|    4   | Ammu     |  400   |
++--------+----------+--------+
+4 rows in set (0.00 sec)
+7)mysql> select max(salary) from Customer;
++-------------+
+| max(salary) |
++-------------+
+|       400   |
++-------------+
+1 row in set (0.16 sec)
+
+8)mysql> select min(salary) from Customer;
++-------------+
+| min(salary) |
++-------------+
+|       100   |
++-------------+
+1 row in set (0.00 sec)
+
+9)mysql> select AVG(salary) from Customer;
++-------------+
+| AVG(salary) |
++-------------+
+|  2500.0000 |
++-------------+
+1 row in set (0.06 sec)
+
+10)mysql> select SUM(salary) from Customer;
++-------------+
+| SUM(salary) |
++-------------+
+|       10000 |
++-------------+
+1 row in set (0.01 sec)
+
+11)mysql> select COUNT(salary) from Customer;
++---------------+
+| COUNT(salary) |
++---------------+
+|             4 |
++---------------+
+1 row in set (0.00 sec)
+
+Operations:
+
+1)mysql> desc Details;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| SNO    | varchar(10)  | NO   |     | NULL    |       |
+| SNAME  | varchar(100) | NO   |     | NULL    |       |
+| COURSE | varchar(100) | NO   |     | NULL    |       |
+| PHNO   | int(11)      | NO   |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+4 rows in set (10.76 sec)
+
+2)mysql> SELECT -2 from dual;
++----+
+| -2 |
++----+
+| -2 |
++----+
+1 row in set (0.08 sec)
+
+3)mysql> SELECT -3 from dual;
++----+
+| -3 |
++----+
+| -3 |
++----+
+1 row in set (0.00 sec)
+
+4)mysql> SELECT * from emp1;
+Empty set (1.60 sec)
+
+5)mysql> SELECT * from Customer;
++--------+----------+--------+
+| emp_id | Emp_name | salary |
++--------+----------+--------+
+|    1   | sam      |  100   |
+|    2   | sanju    |  200   |
+|    3   | sammu    |  300   |
+|    4   | Ammu     |  400   |
++--------+----------+--------+
+4 rows in set (0.40 sec)
+
+6)mysql> SELECT salary*2 from Customer;
++----------+
+| salary*2 |
++----------+
+|    200   |
+|    400   |
+|    600   |
+|    800   |
++----------+
+4 rows in set (0.10 sec)
+
+7)mysql> SELECT salary+20 from Customer;
++-------------+
+| salary+20 |
++-------------+
+|       220 |
+|       420 |
+|       620 |
+|       820 |
++-------------+
+4 rows in set (0.03 sec)
+
+8)mysql> SELECT salary-10 from Customer;
++------------+
+| salary-10  |
++------------+
+|       90   |
+|       190  |
+|       290  |
+|       390  |
++------------+
+4 rows in set (0.02 sec)
+
+9)mysql> SELECT Emp_name "Customer" from Customer where salary=1000;
+Empty set (0.13 sec)
+
+mysql> SELECT Emp_name "van" from Customer where salary=200;
+Empty set (0.00 sec)
+
+mysql> SELECT Emp_name "sammu" from Customer where salary=990;
+Empty set (0.00 sec)
+
+mysql> SELECT Emp_name  from Customer where salary>9900;
++----------+
+| Emp_name |
++----------+
+| sam      |
+| sammu    |
+| navya    |
+| Akash    |
++----------+
+4 rows in set (0.02 sec)
+
+10)mysql> SELECT Emp_name  from Customer where 
+salary<100;
+Empty set (0.00 sec)
